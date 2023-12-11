@@ -5,7 +5,10 @@ const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://localhost:27017/mentor_db", {});
+mongoose.connect("mongodb://localhost:27017/mentor_db", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const mentorSchema = new mongoose.Schema({
   name: String,
